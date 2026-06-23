@@ -1,0 +1,30 @@
+.wrap {
+  background: var(--gold);
+  overflow: hidden;
+  padding: 0.9rem 0;
+  border-top: 1px solid rgba(200,164,106,0.4);
+  border-bottom: 1px solid rgba(200,164,106,0.4);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+.track:hover { animation-play-state: paused; }
+
+.item {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.82rem; font-style: italic;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--dark); white-space: nowrap;
+  padding: 0 1.5rem;
+  display: flex; align-items: center; gap: 1.5rem;
+}
+
+.dot { font-style: normal; font-size: 0.55rem; opacity: 0.5; }
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}

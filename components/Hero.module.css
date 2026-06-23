@@ -1,0 +1,192 @@
+/* Hero.module.css */
+.hero {
+  --dark: #0a0a0a;
+  --gold: #c8a46a;
+  --cream: #f4eadb;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0 2rem;
+  background: var(--dark);
+}
+
+.gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(200,164,106,0.08) 0%, transparent 70%);
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  opacity: 0.6;
+}
+
+.ghost {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Playfair Display', serif;
+  font-size: 35vw;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(200,164,106,0.03);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.body {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.body > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.in > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.1s; }
+.in > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.25s; }
+.in > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.4s; }
+
+.headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.5rem, 10vw, 6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.headline span {
+  background: linear-gradient(135deg, #f4eadb 0%, #c8a46a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.headline em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.sub {
+  max-width: 550px;
+  margin: 0 auto 2.5rem;
+  font-size: clamp(0.95rem, 3vw, 1.1rem);
+  line-height: 1.7;
+  color: rgba(244,234,219,0.6);
+}
+
+.actions {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.btnFill {
+  background: var(--gold);
+  color: var(--dark);
+  padding: 0.9rem 2.2rem;
+  border-radius: 40px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btnFill:hover {
+  background: #d4b06a;
+  transform: translateY(-2px);
+}
+
+.btnOutline {
+  border: 1px solid rgba(200,164,106,0.4);
+  color: var(--cream);
+  padding: 0.9rem 2.2rem;
+  border-radius: 40px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.btnOutline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.stat strong {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 5vw, 2.2rem);
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+}
+
+@media (max-width: 860px) {
+  .hero { padding: 0 2rem; }
+  .ghost { font-size: 45vw; opacity: 0.02; }
+  .stats { gap: 2.5rem; }
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 0 1.5rem; }
+  .actions { gap: 1rem; margin-bottom: 3rem; }
+  .btnFill, .btnOutline { padding: 0.7rem 1.6rem; font-size: 0.75rem; }
+  .stats { gap: 2rem; }
+  .stat strong { font-size: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 0 1rem; }
+  .ghost { font-size: 55vw; opacity: 0.02; }
+  .headline { font-size: clamp(2.5rem, 8vw, 3.5rem); margin-bottom: 1rem; }
+  .sub { font-size: 0.85rem; margin-bottom: 2rem; }
+  .actions { flex-direction: column; align-items: center; gap: 0.8rem; }
+  .btnFill, .btnOutline { width: 100%; max-width: 220px; text-align: center; }
+  .stats { gap: 1.5rem; }
+  .stat strong { font-size: 1.3rem; }
+}
+
+@media (max-width: 860px) and (orientation: landscape) {
+  .hero { min-height: auto; padding: 4rem 2rem; }
+  .ghost { font-size: 25vw; }
+}
+
+@media (min-width: 1600px) {
+  .body { max-width: 1100px; }
+  .headline { font-size: 6.5rem; }
+  .sub { max-width: 650px; font-size: 1.2rem; }
+  .stats { gap: 5rem; }
+  .stat strong { font-size: 2.5rem; }
+}

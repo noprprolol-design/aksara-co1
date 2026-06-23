@@ -1,0 +1,135 @@
+.footer {
+  background: var(--brown);
+  border-top: 1px solid rgba(200,164,106,0.15);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 4rem;
+  padding: 4rem 0 3rem;
+}
+
+.brand {
+  flex: 1;
+  min-width: 200px;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.logo em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.tagline {
+  font-size: 0.85rem;
+  color: rgba(244,234,219,0.45);
+  line-height: 1.5;
+  max-width: 280px;
+}
+
+.linksGroup {
+  display: flex;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 160px;
+}
+
+.linksTitle {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.link {
+  font-size: 0.85rem;
+  color: rgba(244,234,219,0.5);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  width: fit-content;
+}
+
+.link:hover {
+  color: var(--cream);
+  transform: translateX(4px);
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(200,164,106,0.1);
+  font-size: 0.75rem;
+  color: rgba(244,234,219,0.3);
+}
+
+.bottom p:last-child {
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 860px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .top {
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 3rem 0 2rem;
+  }
+  
+  .linksGroup {
+    gap: 2rem;
+    width: 100%;
+  }
+  
+  .brand {
+    width: 100%;
+  }
+  
+  .tagline {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .linksGroup {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .bottom {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem 0;
+  }
+}

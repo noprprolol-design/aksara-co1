@@ -1,0 +1,170 @@
+.section {
+  background: var(--light);
+  padding: 8rem 4rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.in .header {
+  opacity: 1;
+  transform: none;
+}
+
+.label {
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--brown);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.label span {
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: var(--brown);
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.title em {
+  color: var(--brown);
+  font-style: italic;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: white;
+  border: 1px solid rgba(44, 26, 14, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.35s;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease var(--delay), transform 0.65s ease var(--delay),
+    border-color 0.3s, box-shadow 0.3s;
+}
+
+.in .card {
+  opacity: 1;
+  transform: none;
+}
+
+.card:hover {
+  border-color: rgba(200, 164, 106, 0.4);
+  box-shadow: 0 8px 40px rgba(44, 26, 14, 0.1);
+  transform: translateY(-4px);
+}
+
+.avatar {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #f0ebe3;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.initials {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: rgba(244, 234, 219, 0.9);
+  letter-spacing: -0.02em;
+  z-index: 1;
+}
+
+/* Foto langsung muncul, initials sebagai background */
+.photo {
+  opacity: 1;
+}
+
+/* Kalau foto gagal load, initials tetap keliatan */
+.photo[src=""] + .initials,
+.photo:not([src]) + .initials,
+.photo[src="undefined"] + .initials {
+  opacity: 1;
+}
+
+.info {
+  padding: 1.4rem 1.6rem;
+}
+
+.name {
+  font-family: "Playfair Display", serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+}
+
+.role {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+@media (max-width: 860px) {
+  .section {
+    padding: 5rem 1.5rem;
+  }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

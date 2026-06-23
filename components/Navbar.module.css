@@ -1,0 +1,279 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 4rem;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.scrolled {
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 4rem;
+  border-bottom-color: rgba(200, 164, 106, 0.15);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cream);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  z-index: 1001;
+  position: relative;
+}
+
+.logo em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.cta {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  position: relative;
+}
+
+.cta:hover {
+  background: var(--gold);
+  color: var(--dark);
+}
+
+/* Burger Button */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+  position: relative;
+}
+
+.burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--cream);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.burgerOpen span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burgerOpen span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.burgerOpen span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 998;
+}
+
+.overlayOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile Navigation */
+.nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 85%;
+  max-width: 320px;
+  height: 100vh;
+  background: #0f0a05;
+  z-index: 999;
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.navOpen {
+  right: 0;
+}
+
+.navHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(200, 164, 106, 0.15);
+}
+
+.navLogo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.closeBtn {
+  background: transparent;
+  border: none;
+  color: var(--cream);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.closeBtn:hover {
+  color: var(--gold);
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  gap: 1.5rem;
+}
+
+.link {
+  color: rgba(244, 234, 219, 0.7);
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(200, 164, 106, 0.1);
+}
+
+.link:hover {
+  color: var(--gold);
+  transform: translateX(8px);
+}
+
+.ctaMobile {
+  display: none;
+  background: var(--gold);
+  color: var(--dark);
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.ctaMobile:hover {
+  background: var(--cream);
+  transform: translateY(-2px);
+}
+
+/* Desktop */
+@media (min-width: 861px) {
+  .nav {
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .navHeader {
+    display: none;
+  }
+
+  .navLinks {
+    flex-direction: row;
+    padding: 0;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .link {
+    border-bottom: none;
+    padding: 0;
+    font-size: 0.8rem;
+  }
+
+  .link:hover {
+    transform: none;
+  }
+
+  .ctaMobile {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 860px) {
+  .header {
+    padding: 1rem 1.5rem;
+  }
+
+  .scrolled {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .cta {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .ctaMobile {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav {
+    width: 100%;
+    max-width: none;
+  }
+
+  .navLinks {
+    padding: 1.5rem;
+  }
+}
